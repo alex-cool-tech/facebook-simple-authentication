@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+    php-cli:
+        build:
+            args:
+                OWNER_USER: {user name in Docker}
+                OWNER_USER_ID: {host user ID}
