@@ -1,8 +1,0 @@
-version: '3'
-
-services:
-    php-cli:
-        build:
-            args:
-                OWNER_USER: dev
-                OWNER_USER_ID: 1000

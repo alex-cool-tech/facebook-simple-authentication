@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FacebookAuthenticationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/logout', [FacebookAuthenticationController::class, FacebookAuthenticationController::ACTION_LOGOUT]);
+Route::get('/login', [FacebookAuthenticationController::class, FacebookAuthenticationController::ACTION_LOGIN]);
+Route::get('/', [FacebookAuthenticationController::class, FacebookAuthenticationController::ACTION_INDEX]);

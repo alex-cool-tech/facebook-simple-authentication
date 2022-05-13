@@ -31,10 +31,13 @@ services:
         image: nginx:1.21
         ports:
             - "8080:80"
+            - "8443:443"
         depends_on:
             - php-fpm
         volumes:
             - ./../../facebook-simple-authentication:/var/www/html/facebook-simple-authentication:ro
             - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
             - ./nginx/conf.d/local.conf:/etc/nginx/conf.d/default.conf:ro
+            # Warning! ssl must be located on host machine
+            - ./nginx/certs:/etc/nginx/ssl:ro
         restart: on-failure
