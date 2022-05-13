@@ -10,7 +10,7 @@ This is a Facebook authentication test app
   mkcert -key-file ssl.key -cert-file ssl.crt localhost
   ```
 
-- copy Docker local file and set up `OWNER_USER`, `OWNER_USER_ID` (run `id` in console to find out your user ID) variables
+- copy Docker local file (`docker/docker-compose/local/docker-compose.yml.sample`) and set up `OWNER_USER`, `OWNER_USER_ID` (run `id` in console to find out your user ID) variables
 
 - run Docker
   ```
@@ -27,9 +27,19 @@ This is a Facebook authentication test app
   composer i
   ```
 
-- edit .env, set up `FACEBOOK_API_CLIENT_ID`, `FACEBOOK_API_CLIENT_SECRET` variables (you must take this data in the developer's application)
+- copy `.env` from `.env.example`, set up `FACEBOOK_API_CLIENT_ID`, `FACEBOOK_API_CLIENT_SECRET` variables (you must take this data in the developer's application)
   - Warning! Your application must be configured to allow login and run in developer mode
   - For more information visit https://developers.facebook.com/docs/facebook-login/web
+
+- in Docker CLI image run
+  ```
+  php artisan key:generate
+  ```
+
+- in some cases you need to set permissions on directories, in Docker CLI image run
+  ```
+  chmod -R 777 storage/logs storage/framework
+  ```
 
 - now you can open https://localhost:8443/ and use app
 
