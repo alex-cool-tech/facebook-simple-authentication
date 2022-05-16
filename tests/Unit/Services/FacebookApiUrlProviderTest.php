@@ -19,7 +19,7 @@ class FacebookApiUrlProviderTest extends AbstractTestCase
     private const REDIRECT_URI = '';
     private const SOME_STATE = 'some_state';
     private const CODE = '98765';
-    const ACCESS_TOKEN = 'token123';
+    private const ACCESS_TOKEN = 'token123';
 
     private FacebookApiUrlProvider $provider;
 

@@ -15,10 +15,10 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(FacebookApiUrlProvider::class, function () {
             return new FacebookApiUrlProvider(
-                env('FACEBOOK_API_LOGIN_URL'),
-                env('FACEBOOK_API_GRAPH_URL'),
-                env('FACEBOOK_API_CLIENT_ID'),
-                env('FACEBOOK_API_CLIENT_SECRET')
+                config('facebook_api.login_url'),
+                config('facebook_api.graph_url'),
+                config('facebook_api.client_id'),
+                config('facebook_api.client_secret')
             );
         });
     }
